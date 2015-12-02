@@ -16,8 +16,10 @@
 // 过期提醒
 #define MJRefreshDeprecated(instead) NS_DEPRECATED(2_0, 2_0, 2_0, 2_0, instead)
 
-// 运行时objc_msgSend
+// 运行时objc_msgSend          
 #define MJRefreshMsgSend(...) ((void (*)(void *, SEL, UIView *))objc_msgSend)(__VA_ARGS__)
+
+        //  一个弱引用???
 #define MJRefreshMsgTarget(target) (__bridge void *)(target)
 
 // RGB颜色

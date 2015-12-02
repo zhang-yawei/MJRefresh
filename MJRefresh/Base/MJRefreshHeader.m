@@ -10,7 +10,7 @@
 #import "MJRefreshHeader.h"
 
 @interface MJRefreshHeader()
-@property (assign, nonatomic) CGFloat insetTDelta;
+@property (assign, nonatomic) CGFloat insetTDelta;   // 刷新结束 需要回复的量
 @end
 
 @implementation MJRefreshHeader
@@ -36,10 +36,11 @@
     // 设置key
     self.lastUpdatedTimeKey = MJRefreshHeaderLastUpdatedTimeKey;
     
-    // 设置高度
+    // 设置高度     刷新头的高度
     self.mj_h = MJRefreshHeaderHeight;
 }
 
+// layoutSubviews 的时候执行
 - (void)placeSubviews
 {
     [super placeSubviews];
@@ -136,8 +137,6 @@
 - (void)drawRect:(CGRect)rect
 {
     [super drawRect:rect];
-    
-    
 }
 
 #pragma mark - 公共方法

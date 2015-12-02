@@ -30,10 +30,11 @@
     return self;
 }
 
+//
 - (void)prepare
 {
     // 基本属性
-    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.autoresizingMask = UIViewAutoresizingFlexibleWidth; // 适配屏幕宽
     self.backgroundColor = [UIColor clearColor];
 }
 
@@ -57,7 +58,7 @@
     [self removeObservers];
     
     if (newSuperview) { // 新的父控件
-        // 设置宽度
+        // 设置宽度 头宽等于父视图的宽
         self.mj_w = newSuperview.mj_w;
         // 设置位置
         self.mj_x = 0;
@@ -70,7 +71,11 @@
         _scrollViewOriginalInset = _scrollView.contentInset;
         
         // 添加监听
+        /**
+         *  监听 _scrollow 的变化  contentOffset  contentSize  和 pan 的状态
+         */
         [self addObservers];
+        
     }
 }
 
@@ -192,8 +197,7 @@
     _pullingPercent = pullingPercent;
     
     if (self.isRefreshing) return;
-    
-    if (self.isAutomaticallyChangeAlpha) {
+        if (self.isAutomaticallyChangeAlpha) {
         self.alpha = pullingPercent;
     }
 }

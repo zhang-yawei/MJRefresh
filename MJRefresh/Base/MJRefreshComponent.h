@@ -68,7 +68,7 @@ typedef void (^MJRefreshComponentRefreshingBlock)();
 
 #pragma mark - 交给子类们去实现
 /** 初始化 */
-- (void)prepare NS_REQUIRES_SUPER;
+- (void)prepare NS_REQUIRES_SUPER;  // 当一个方法后添加 NS_REQUIRES_SUPER时,如果子类没有实现这个方法,会有一个警告
 /** 摆放子控件frame */
 - (void)placeSubviews NS_REQUIRES_SUPER;
 /** 当scrollView的contentOffset发生改变的时候调用 */
